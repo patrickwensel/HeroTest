@@ -1,0 +1,45 @@
+<div class="gray-bg add-hero-main">
+  <form [formGroup]="mainForm">
+    <div class="form-group row">
+      <div class="input-group">
+        <span class="input-group-text field-text-l">Name</span>
+        <input type="text" class="form-control" id="name" required formControlName="name" maxlength="100" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="input-group">
+        <span class="input-group-text field-text-l">Alias</span>
+        <input type="text" class="form-control" id="alias" required formControlName="alias" maxlength="100" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="input-group">
+        <span class="input-group-text field-text-l">Brand</span>
+        <select class="form-select" required formControlName="brandId">
+          <option *ngFor="let obj of brands" [value]="obj.Id">{{obj.Name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="input-group status-field">
+        <span class="input-group-text field-text-l">STATUS</span>
+        <input class="form-input" type="checkbox" value="" id="isActive" formControlName="isActive">
+        <label class="form-label" for="isActive">
+          Active
+        </label>
+      </div>
+    </div>
+
+    <div class="row form-btns">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </div>
+      <div class="col-md-6 float-right">
+        <button type="submit" class="btn btn-primary" (click)="onSave()" [disabled]="mainForm.invalid">Save</button>
+      </div>
+    </div>
+</form>
+  </div>
